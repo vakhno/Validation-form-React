@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-function useForm(ValidateInfo) {
+function useForm(ValidateInfo, submitForm) {
 	const [values, setValues] = useState({
 		username: '',
 		email: '',
@@ -23,6 +23,12 @@ function useForm(ValidateInfo) {
 		setErrors(ValidateInfo(values))
 		setIsSubmit(true)
 	}
+
+	useEffect(() => {
+		if (Object.keys(errors).length === 0 && isSubmit) {
+			submitForm()
+		}
+	}, [errors])
 
 	return { handleChange, values, handleSubmit, errors }
 }

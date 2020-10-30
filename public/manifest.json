@@ -1,0 +1,9 @@
+{
+	"short_name": "Valid form",
+	"name": "Simple valid from created with react",
+	"icons": [],
+	"start_url": ".",
+	"display": "standalone",
+	"theme_color": "#000000",
+	"background_color": "#ffffff"
+}

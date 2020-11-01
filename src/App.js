@@ -6,11 +6,11 @@ import FormTransitionContext from './components/context/FormTransitionContext'
 function App() {
 	return (
 		<>
-			<CloseContext>
-				<FormTransitionContext>
+			<FormTransitionContext>
+				<CloseContext>
 					<Form />
-				</FormTransitionContext>
-			</CloseContext>
+				</CloseContext>
+			</FormTransitionContext>
 		</>
 	)
 }

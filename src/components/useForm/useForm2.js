@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 function useForm2(ValidateInfo2, submitForm) {
 	const [values, setValues] = useState({
@@ -26,7 +26,7 @@ function useForm2(ValidateInfo2, submitForm) {
 		if (Object.keys(errors).length === 0 && isSubmit) {
 			submitForm()
 		}
-	}, [errors])
+	}, [errors, submitForm, isSubmit])
 
 	return { handleChange, values, handleSubmit, errors }
 }

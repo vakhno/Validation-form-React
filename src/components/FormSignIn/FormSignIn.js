@@ -3,31 +3,32 @@ import useForm2 from '../useForm/useForm2'
 import ValidateInfo2 from '../ValidateInfo/ValidateInfo2'
 import { FormTransitionContext } from '../context/FormTransitionContext'
 import { CloseContext } from '../context/CloseContext'
+import LabelInput from '../Input/LabelInput'
+import Button from '../Button/Button'
 
+import './FormSignIn.sass'
 const FormSignIn = ({ submitForm }) => {
-	const { setStartPage } = useContext(CloseContext)
+	const { toStartPage } = useContext(CloseContext)
 	const { setNewForm } = useContext(FormTransitionContext)
 	const { handleChange, values, handleSubmit, errors } = useForm2(ValidateInfo2, submitForm)
 
 	useEffect(() => {
-		setStartPage(false)
+		toStartPage(false)
 	})
 
 	return (
 		<div>
-			<form className="form" onSubmit={handleSubmit}>
-				<div className="form-inputs">
-					<label htmlFor="email" className="form-label">Email</label>
-					<input type="email" placeholder='Enter your email' name="email" id="email" className="form-input" value={values.email} onChange={handleChange} />
-					{errors.email && <p>{errors.email}</p>}
+			<form className="form absolute-center" onSubmit={handleSubmit}>
+				<div className="form__input-block">
+					<LabelInput customStyle='form-input' inputStyle='input__default' label='Email' placeholder='Enter your email' name='email' id="email" type="email" value={values.email} onChange={handleChange} />
+					{errors.email && <p className="form__error-text">{errors.email}</p>}
 				</div>
-				<div className="form-inputs">
-					<label htmlFor="password" className="form-label">Password</label>
-					<input type="password" placeholder='Enter your password' name="password" id="password" className="form-input" value={values.password} onChange={handleChange} />
-					{errors.password && <p>{errors.password}</p>}
+				<div className="form__input-block">
+					<LabelInput customStyle='form-input' inputStyle='input__default' label='Password' placeholder='Enter your password' name='password' id="password" type="password" value={values.password} onChange={handleChange} />
+					{errors.password && <p className="form__error-text">{errors.password}</p>}
 				</div>
-				<button className="form-input-btn" type="submit">Sign up</button>
-				<div className="form-input-login">
+				<Button type='submit' customStyle='form__input-button' buttonStyle='button__default'>Sign In</Button>
+				<div className="form__prompt">
 					Dont have an account? Create <span onClick={() => setNewForm(true)}>here</span>
 				</div>
 			</form>

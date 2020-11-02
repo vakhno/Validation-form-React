@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from 'react'
+import React, { createContext, useState, useContext, useEffect } from 'react'
 import { FormTransitionContext } from '../context/FormTransitionContext'
 
 export const CloseContext = createContext()
@@ -8,7 +8,7 @@ const CloseContextProvider = ({ children }) => {
 	const { isSubmitted, cancelForm } = useContext(FormTransitionContext)
 
 	const toStartPage = (choice) => {
-		setStartPage(prev => choice)
+		setStartPage(choice)
 	}
 
 	const closeCurrentPage = () => {

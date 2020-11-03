@@ -10,11 +10,11 @@ import './FormSignUp.sass'
 function FormSignUp({ submitForm }) {
 	const { handleChange, values, handleSubmit, errors } = useForm(ValidateInfo, submitForm)
 	const { setNewForm } = useContext(FormTransitionContext)
-	const { toStartPage } = useContext(CloseContext)
+	const { visibleArrow, startPage } = useContext(CloseContext)
 
 	useEffect(() => {
-		toStartPage(false)
-	})
+		visibleArrow()
+	}, [startPage])
 
 	return (
 		<form className="form absolute-center" onSubmit={handleSubmit}>

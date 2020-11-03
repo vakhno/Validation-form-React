@@ -5,16 +5,16 @@ import { FormTransitionContext } from '../context/FormTransitionContext'
 import { CloseContext } from '../context/CloseContext'
 import LabelInput from '../Input/LabelInput'
 import Button from '../Button/Button'
-
 import './FormSignIn.sass'
+
 const FormSignIn = ({ submitForm }) => {
-	const { toStartPage } = useContext(CloseContext)
 	const { setNewForm } = useContext(FormTransitionContext)
 	const { handleChange, values, handleSubmit, errors } = useForm2(ValidateInfo2, submitForm)
+	const { visibleArrow, startPage } = useContext(CloseContext)
 
 	useEffect(() => {
-		toStartPage(false)
-	})
+		visibleArrow()
+	}, [startPage])
 
 	return (
 		<div>

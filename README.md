@@ -1,6 +1,4 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[See result](https://vakhno.github.io/Validation-form-React/)
 
 ## Available Scripts
 

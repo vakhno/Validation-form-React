@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from 'react'
+import React, { createContext, useContext, useReducer } from 'react'
 import { FormTransitionContext } from '../context/FormTransitionContext'
 
 export const CloseContext = createContext()
@@ -12,7 +12,7 @@ function reducer(state, action) {
 }
 
 const CloseContextProvider = ({ children }) => {
-	const [state, dispatch] = React.useReducer(reducer, { startPage: true });
+	const [state, dispatch] = useReducer(reducer, { startPage: true });
 	const { isSubmitted, cancelForm } = useContext(FormTransitionContext)
 
 	const visibleArrow = () => {
@@ -37,6 +37,7 @@ const CloseContextProvider = ({ children }) => {
 
 export default CloseContextProvider
 
+//БЕЗ ПОМОЩИ useReducer
 // import React, { createContext, useState, useContext, useEffect } from 'react'
 // import { FormTransitionContext } from '../context/FormTransitionContext'
 
